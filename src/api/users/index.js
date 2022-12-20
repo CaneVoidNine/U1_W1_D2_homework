@@ -6,7 +6,7 @@ import uniqid from "uniqid";
 
 const usersJSONPath = join(
   dirname(fileURLToPath(import.meta.url)),
-  "users.json"
+  "author.json"
 );
 
 console.log("TARGET --> ", usersJSONPath);
