@@ -12,7 +12,7 @@ const usersJSONPath = join(
 console.log("TARGET --> ", usersJSONPath);
 
 const usersRouter = express.Router();
-
+// post
 usersRouter.post("/", (request, response) => {
   console.log("REQUEST BODY: ", request.body);
 
@@ -27,7 +27,7 @@ usersRouter.post("/", (request, response) => {
 
   response.status(201).send({ id: newUser.id });
 });
-
+// get
 usersRouter.get("/", (request, response) => {
   const fileContent = fs.readFileSync(usersJSONPath);
   console.log("FILE CONTENT: ", fileContent);
@@ -36,7 +36,7 @@ usersRouter.get("/", (request, response) => {
 
   response.send(users);
 });
-
+// get by id
 usersRouter.get("/:userId", (request, response) => {
   const userID = request.params.userId;
 
@@ -46,7 +46,7 @@ usersRouter.get("/:userId", (request, response) => {
 
   response.send(foundUser);
 });
-
+// put
 usersRouter.put("/:userId", (request, response) => {
   const usersArray = JSON.parse(fs.readFileSync(usersJSONPath));
 
@@ -63,7 +63,7 @@ usersRouter.put("/:userId", (request, response) => {
 
   response.send(updatedUser);
 });
-
+// del
 usersRouter.delete("/:userId", (request, response) => {
   const usersArray = JSON.parse(fs.readFileSync(usersJSONPath));
 
