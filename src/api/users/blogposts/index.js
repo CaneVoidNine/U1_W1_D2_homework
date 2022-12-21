@@ -23,7 +23,7 @@ blogsRouter.get("/", (request, response) => {
 blogsRouter.post("/", (request, response) => {
   console.log("REQUEST BODY: ", request.body);
 
-  const newBlog = { ...request.body, createdAt: new Date(), id: uniqid() };
+  const newBlog = { ...request.body, createdAt: new Date(), _id: uniqid() };
   console.log("NEW Blog: ", newBlog);
 
   const blogsArray = JSON.parse(fs.readFileSync(blogsJSONPath));
